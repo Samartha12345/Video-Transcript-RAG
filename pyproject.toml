@@ -1,0 +1,37 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "youtube-transcript-rag"
+version = "0.1.0"
+description = "Ask questions about a YouTube transcript with Chroma and a local Qwen model."
+readme = "README.md"
+requires-python = ">=3.11,<3.13"
+dependencies = [
+  "youtube-transcript-api>=1.2,<2",
+  "langchain-core>=0.3.72,<1",
+  "langchain-text-splitters>=0.3.9,<0.4",
+  "langchain-chroma>=0.2.5,<0.3",
+  "langchain-huggingface>=0.3.1,<0.4",
+  "sentence-transformers>=4,<6",
+  "transformers>=4.46,<5",
+  "torch>=2.3,<3",
+]
+
+[project.optional-dependencies]
+notebook = ["ipykernel>=6"]
+
+[project.scripts]
+youtube-rag = "youtube_rag.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.uv.sources]
+torch = [{ index = "pytorch-cpu", marker = "sys_platform == 'linux' or sys_platform == 'win32'" }]
+
+[[tool.uv.index]]
+name = "pytorch-cpu"
+url = "https://download.pytorch.org/whl/cpu"
+explicit = true

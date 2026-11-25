@@ -1,0 +1,3 @@
+In today's workshop we use a small motor to demonstrate predictive maintenance. We attach a vibration sensor to the motor housing and collect readings once per second. During the first ten minutes the motor runs normally. We use these readings to establish a baseline.
+
+After the baseline period we loosen one mounting bolt. Vibration rises even though the motor speed stays constant. The example shows why comparing a new reading to a baseline can be more informative than examining the reading by itself.
